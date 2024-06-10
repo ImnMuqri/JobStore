@@ -24,7 +24,7 @@
                   outlined
                   hide-details
                   placeholder="Search Job Or Company Name"
-                  class="rounded-xl bg-slate-100 w-72 sm:72 md:w-96 mr-4"
+                  class="rounded-xl bg-slate-100 w-64 sm:68 md:w-96 mr-4"
                 ></v-text-field>
                 <v-btn
                   text
@@ -49,10 +49,10 @@
         </v-col>
       </v-row>
       <v-row class="mb-6">
-        <v-col class="ml-10 mr-10 sm:ml-2 sm:ml-24 sm:mr-2 sm:mr-24">
+        <v-col class="ml-2 mr-2 sm:ml-2 sm:ml-24 sm:mr-2 sm:mr-24">
           <v-card
             color="indigo darken-1"
-            class="w-full h-24 sm:h-36 md:h-44 p-4 rounded-lg"
+            class="w-full h-20 sm:h-36 md:h-44 p-4 rounded-lg"
           >
             <v-row>
               <div class="flex align-center">
