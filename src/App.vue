@@ -1,32 +1,148 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      :color="scrolledPastThreshold ? 'indigo darken-2' : 'blue lighten-5'"
+      flat
+      min-height="80"
+      :dark="scrolledPastThreshold"
+    >
+      <!-- Use v-app-bar-nav-icon for burger icon -->
+      <v-app-bar-nav-icon
+        v-if="isSmallScreen"
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
+
+      <div class="d-flex align-center pt-4 pl-6">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2 rounded-md mx-auto"
+          contain
+          src="./assets/jobstore_mobile_icon2.png"
+          transition="scale-transition"
+          width="120"
+          min-width="50"
+        />
+      </div>
+
+      <v-spacer></v-spacer>
+      <div
+        v-if="!isSmallScreen"
+        class="pt-4 sr-only sm:not-sr-only md:not-sr-only lg:not-sr-only"
+      >
+        <v-btn text class="font-satoshi font-medium hover-blue"
+          >Browse Jobs</v-btn
+        >
+        <v-btn text class="font-satoshi font-medium hover-blue">
+          Companies</v-btn
+        >
+        <v-btn text class="font-satoshi font-medium hover-blue">
+          Campus Hiring
+        </v-btn>
+        <v-btn text class="font-satoshi font-medium hover-blue"
+          >Government Jobs
+        </v-btn>
+        <v-btn text class="font-satoshi font-medium hover-blue">News </v-btn>
+        <v-btn text class="font-satoshi font-medium hover-blue"
+          >Resources
+        </v-btn>
+        <v-btn text class="font-satoshi font-medium hover-blue"
+          >Download App</v-btn
+        >
+      </div>
+      <v-spacer></v-spacer>
+      <div v-if="!isSmallScreen" class="pt-4 mr-6">
+        <v-btn
+          text
+          style="text-transform: none"
+          :class="{
+            'bg-slate-100': true,
+            'text-indigo-700': true,
+
+            'rounded-md': true,
+            'font-satoshi': true,
+            'text-base': true,
+            'drop-shadow-md': true,
+            'mr-2': true,
+          }"
+        >
+          Sign In
+        </v-btn>
+        <v-btn
+          text
+          style="text-transform: none"
+          :class="{
+            'bg-indigo-700': !scrolledPastThreshold,
+            'bg-blue-200': scrolledPastThreshold,
+            'text-slate-50': !scrolledPastThreshold,
+            'text-indigo-700': scrolledPastThreshold,
+            'rounded-md': true,
+            'font-satoshi': true,
+            'text-base': true,
+            'drop-shadow-md': true,
+          }"
+        >
+          Sign Up
+        </v-btn>
+      </div>
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+
+    <!-- Drawer for small screens -->
+    <v-navigation-drawer v-if="isSmallScreen" v-model="drawer" app>
+      <!-- Your drawer content -->
+    </v-navigation-drawer>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from "vue";
 
-nav {
-  padding: 30px;
-}
+export default Vue.extend({
+  name: "App",
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  data() {
+    return {
+      scrolledPastThreshold: false,
+      scrollThreshold: 500, // Change this value to your desired scroll position
+      drawer: false,
+      isSmallScreen: false,
+    };
+  },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("resize", this.handleResize);
+  },
+  methods: {
+    handleScroll() {
+      this.scrolledPastThreshold = window.scrollY >= this.scrollThreshold;
+    },
+    handleResize() {
+      this.isSmallScreen = window.innerWidth < 800;
+    },
+  },
+});
+</script>
+<style scoped>
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.v-app-bar {
+  background-color: #2663dd;
+}
+.hover-blue:hover {
+  color: blue !important;
+}
+.bg-light-blue {
+  background-color: #c3fdff;
 }
 </style>
