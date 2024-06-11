@@ -13,23 +13,18 @@
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
 
-      <div class="d-flex align-center pt-4 pl-6 justify-center">
+      <div class="d-flex align-center md:pl-6 justify-center">
         <v-img
-          alt="Vuetify Logo"
-          class="mr-2 rounded-md"
+          alt="Logo"
+          class="rounded-md w-20"
           contain
           src="./assets/jobstore_mobile_icon2.png"
           transition="scale-transition"
-          width="120"
-          min-width="50"
         />
       </div>
 
       <v-spacer></v-spacer>
-      <div
-        v-if="!isSmallScreen"
-        class="pt-4 sr-only sm:not-sr-only md:not-sr-only"
-      >
+      <div v-if="!isSmallScreen" class="pt-4 sr-only sm:sr-only md:not-sr-only">
         <v-btn text class="font-satoshi font-medium hover-blue"
           >Browse Jobs</v-btn
         >
