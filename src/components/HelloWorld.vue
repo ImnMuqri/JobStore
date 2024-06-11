@@ -1,6 +1,6 @@
 <template>
-  <v-container fluid class="" style="width: 100%">
-    <v-card class="h-full" color="#E3F2FD" elevation="0">
+  <div class="pt-12" style="width: 100%">
+    <v-card class="h-full pt-10" color="#E3F2FD" elevation="0">
       <v-row class="mb-10" no-gutters>
         <v-col class="d-flex justify-center align-center">
           <div class="ml-4 md:ml-10 sm:mt-0">
@@ -26,7 +26,7 @@
                   outlined
                   hide-details
                   placeholder="Search Job Or Company Name"
-                  class="rounded-lg bg-slate-100 w-72 sm:w-76 mb-2 sm:mb-0 md:w-96 md:mb-0 md:mr-4"
+                  class="rounded-lg bg-slate-100 w-full sm:w-76 mb-2 sm:mb-0 md:w-96 md:mb-0 md:mr-4"
                 ></v-text-field>
                 <v-btn
                   hide-details
@@ -34,7 +34,7 @@
                   height="35"
                   style="text-transform: none"
                   color="white"
-                  class="bg-indigo-500 rounded-lg text-base font-satoshi drop-shadow-md w-full sm:w-72 md:w-28"
+                  class="bg-indigo-500 rounded-md text-base font-satoshi drop-shadow-md w-full sm:w-72 md:w-28"
                 >
                   Find Jobs
                 </v-btn>
@@ -51,7 +51,7 @@
           />
         </v-col>
       </v-row>
-      <v-row class="mb-2">
+      <v-row class="mb-2 sr-only sm:not-sr-only">
         <v-col class="ml-1 mr-1 sm:ml-10 md:ml-24 sm:mr-10 md:mr-24">
           <div class="p-2 sm:pl-10 sm:pr-10 md:pl-10 md:pr-10">
             <v-card
@@ -221,11 +221,11 @@
         <v-card
           elevation="0"
           color="#E3F2FD"
-          class="mb-6 pl-10 md:pl-20 w-full md:pr-10 md:pr-16"
+          class="mb-6 pl-5 md:pl-20 w-full md:pr-10 md:pr-16"
         >
           <v-col class="">
             <v-card-title
-              class="text-2xl sm:text-3xl md:text-4xl font-satoshi font-semibold pl-10"
+              class="text-2xl sm:text-3xl md:text-4xl font-satoshi font-semibold md:pl-10"
               style="white-space: normal; word-break: break-word"
               >News & Article</v-card-title
             >
@@ -246,7 +246,7 @@
                   </v-btn>
                 </v-col>
               </v-row>
-              <div class="flex h-30 md:ml-10 space-x-4 overflow-x-auto">
+              <div class="flex h-full md:ml-10 space-x-4 overflow-x-auto">
                 <div
                   v-for="(newsItem, index) in newsItems"
                   :key="index"
@@ -281,7 +281,7 @@
       ></v-row
     >
 
-    <v-card color="indigo darken-2" class="h-30 md:h-56 w-full">
+    <v-card color="indigo darken-2" class="h-30 md:h-56 w-full" flat>
       <div class="pt-1 pb-1 md:pt-6 md:pb-6">
         <v-row class="justify-center align-center md:pt-5">
           <v-col cols="5">
@@ -441,7 +441,7 @@
         </v-row>
       </div>
     </v-card>
-  </v-container>
+  </div>
 </template>
 
 <script lang="ts">
