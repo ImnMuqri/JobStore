@@ -99,7 +99,6 @@
       width="100%"
       height="100vh"
       class="bg-blue-900"
-      style="overflow-y: hidden"
     >
       <v-container class="fill-height d-flex flex-column justify-center">
         <!-- Center content vertically -->
