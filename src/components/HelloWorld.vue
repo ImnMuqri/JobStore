@@ -3,7 +3,7 @@
     <v-card class="h-full" color="#E3F2FD" elevation="0">
       <v-row class="mb-10">
         <v-col class="d-flex justify-center align-center">
-          <div class="ml-10 mt-10 sm:mt-0">
+          <div class="ml-4 md:ml-10 mt-10 sm:mt-0">
             <v-row>
               <v-col>
                 <h1
@@ -28,7 +28,7 @@
                 ></v-text-field>
                 <v-btn
                   text
-                  height="50"
+                  height="40"
                   style="text-transform: none"
                   color="white"
                   class="bg-indigo-700 rounded-lg text-base font-satoshi drop-shadow-md"
@@ -103,7 +103,7 @@
           <v-img contain src="../assets/JobImg.png" class="ml-6 w-40 md:w-96" />
         </v-card>
       </v-col>
-      <v-col class="pt-6 justify-center w-1/2 md:w-1/2">
+      <v-col class="pt-6 justify-center w-40 md:w-1/2">
         <div class="w-full h-full">
           <p class="text-4xl font-satoshi font-semibold mb-6">
             Save time with job recommendations that match your interests
@@ -288,9 +288,7 @@
                   <v-img
                     contain
                     src="../assets/JobStoreLogo.png"
-                    width="150"
-                    min-width="100"
-                    class="drop-shadow-lg"
+                    class="drop-shadow-lg w-20 md:w-36"
                   />
                 </v-col>
                 <v-col cols="12">
