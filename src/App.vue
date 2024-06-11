@@ -97,8 +97,8 @@
       app
       temporary
       width="100%"
-      height="100vh"
-      class="bg-blue-900"
+      max-height="100vh"
+      class="bg-blue-900 overflow-hidden"
     >
       <v-container class="fill-height d-flex flex-column justify-center">
         <!-- Center content vertically -->
