@@ -14,7 +14,7 @@
         ></v-app-bar-nav-icon>
       </div>
 
-      <div class="d-flex align-center md:pl-6 pt-5 justify-center">
+      <div class="d-flex align-center md:pl-6 pt-5 justify-center mx-auto">
         <v-img
           alt="Logo"
           class="rounded-md w-20 sm:w-28"

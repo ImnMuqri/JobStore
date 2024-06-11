@@ -103,7 +103,7 @@
                   <v-col>
                     <div class="pl-3">
                       <p
-                        class="text-xs sm:text-xs md:text-xl lg:text-3xl font-satoshi font-black gradient-text-yellow"
+                        class="text-xs sm:text-xs md:text-xl lg:text-2xl font-satoshi font-black gradient-text-yellow"
                       >
                         <span>26 - 27 OCTOBER 2024</span><br />
                         <span> 10AM - 6PM</span>
