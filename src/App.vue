@@ -84,10 +84,11 @@
         </v-btn>
       </div>
     </v-app-bar>
-
-    <v-main>
-      <router-view />
-    </v-main>
+    <v-content>
+      <v-main>
+        <router-view />
+      </v-main>
+    </v-content>
 
     <!-- Drawer for small screens -->
     <v-navigation-drawer
