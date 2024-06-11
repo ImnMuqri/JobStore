@@ -51,7 +51,7 @@
           />
         </v-col>
       </v-row>
-      <v-row class="mb-2">
+      <v-row class="mb-2 sr-only sm:not-sr-only">
         <v-col class="ml-1 mr-1 sm:ml-10 md:ml-24 sm:mr-10 md:mr-24">
           <div class="p-2 sm:pl-10 sm:pr-10 md:pl-10 md:pr-10">
             <v-card
