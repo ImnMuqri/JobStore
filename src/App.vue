@@ -151,7 +151,7 @@ export default Vue.extend({
   data() {
     return {
       scrolledPastThreshold: false,
-      scrollThreshold: 400, // Change this value to your desired scroll position
+      scrollThreshold: 100, // Change this value to your desired scroll position
       drawer: false,
       isSmallScreen: false,
       group: null,
