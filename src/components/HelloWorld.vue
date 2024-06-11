@@ -1,6 +1,6 @@
 <template>
-  <div class="" style="width: 100%; padding: 0">
-    <v-card class="pt-5 h-full" color="#E3F2FD" elevation="0">
+  <v-container fluid class="" style="width: 100%">
+    <v-card class="h-full" color="#E3F2FD" elevation="0">
       <v-row class="mb-10" no-gutters>
         <v-col class="d-flex justify-center align-center">
           <div class="ml-4 md:ml-10 sm:mt-0">
@@ -95,116 +95,141 @@
         </v-col>
       </v-row>
     </v-card>
-    <v-row class="ml-12 mt-10 mb-10">
-      <v-col class="sr-only md:not-sr-only md:pt-4 flex justify-center">
-        <v-card
-          color="#E3F2FD"
-          elevation="0"
-          class="rounded-xl w-28 md:pt-6 md:w-96 md:h-96"
-        >
-          <v-img contain src="../assets/JobImg.png" class="ml-6 w-80 md:w-96" />
-        </v-card>
-      </v-col>
-      <v-col class="pt-6 justify-center w-40 md:w-1/2">
-        <div class="w-full h-full">
-          <p
-            class="text-2xl sm:text-2xl md:text-4xl font-satoshi font-semibold mb-6"
-          >
-            Save time with job recommendations that match your interests
-          </p>
-          <v-btn
-            text
-            height="45"
-            style="text-transform: none"
-            color="white"
-            class="bg-indigo-700 rounded-lg text-base font-satoshi drop-shadow-md"
-          >
-            Explore Jobs >>
-          </v-btn>
-          <div
-            class="overflow-x-scroll mt-6 h-full"
-            style="scrollbar-width: none"
-          >
-            <div class="flex">
-              <div v-for="(JobItem, index) in Jobs" :key="index">
-                <v-card
-                  class="drop-shadow-lg w-96 sm:w-96 mr-3 gradient-border"
-                  elevation="0"
-                  shaped
-                >
-                  <div class="flex justify-between items-center">
-                    <v-card-title
-                      class="text-lg md:text-xl font-satoshi font-semibold"
-                      >{{ JobItem.Position }}</v-card-title
+    <v-row class="mt-10 mb-6">
+      <v-card class="w-full" flat>
+        <v-col class="flex p-12">
+          <v-col class="sr-only md:not-sr-only md:pt-4 md:pl-2">
+            <v-card
+              color="#E3F2FD"
+              elevation="0"
+              class="rounded-xl w-28 md:pt-6 md:pl-2 md:w-96 md:h-96"
+            >
+              <v-img
+                contain
+                src="../assets/JobImg.png"
+                class="ml-6 w-80 md:w-96"
+              />
+            </v-card>
+          </v-col>
+          <v-col class="pt-6 justify-center w-32 md:w-1/2">
+            <div class="w-full h-full">
+              <p
+                class="text-2xl sm:text-2xl md:text-4xl font-satoshi font-semibold mb-6"
+              >
+                Save time with job recommendations that match your interests
+              </p>
+              <v-btn
+                text
+                height="45"
+                style="text-transform: none"
+                color="white"
+                class="bg-indigo-700 rounded-lg text-base font-satoshi drop-shadow-md"
+              >
+                Explore Jobs >>
+              </v-btn>
+              <div
+                class="overflow-x-scroll mt-6 h-full"
+                style="scrollbar-width: none"
+              >
+                <div class="flex">
+                  <div v-for="(JobItem, index) in Jobs" :key="index">
+                    <v-card
+                      class="drop-shadow-lg w-60 sm:w-96 m-3"
+                      elevation="0"
+                      style="border: 1px solid #ccc"
                     >
-                    <div class="text-right pr-3">
-                      <v-chip outlined color="primary">{{
-                        JobItem.Location
-                      }}</v-chip>
-                    </div>
+                      <div class="flex justify-between items-center">
+                        <v-card-title
+                          class="text-lg md:text-xl font-satoshi font-semibold"
+                          style="white-space: normal; word-break: break-word"
+                        >
+                          {{ JobItem.Position }}
+                        </v-card-title>
+                      </div>
+                      <div class="text-left pl-3">
+                        <v-chip outlined color="orange">{{
+                          JobItem.Location
+                        }}</v-chip>
+                      </div>
+                      <div class="pl-2 pr-2">
+                        <v-card-text>
+                          <p
+                            color="secondary"
+                            class="text-base font-bold text-blue-600"
+                          >
+                            {{ JobItem.Company }}
+                          </p>
+                          <div class="flex space-between justify-between">
+                            <p
+                              class="font-satoshi text-base md:text-lg font-semibold text-green-600"
+                            >
+                              {{ JobItem.SalaryRange }}
+                            </p>
+                            <v-btn
+                              dense
+                              depressed
+                              color="blue lighten-1"
+                              dark
+                              class="font-satoshi rounded-full"
+                              style="text-transform: none"
+                            >
+                              View Job
+                            </v-btn>
+                          </div>
+                        </v-card-text>
+                      </div>
+                    </v-card>
                   </div>
-                  <div class="pl-2 pr-2">
-                    <v-card-text>
-                      <p color="secondary" class="text-base text-blue-600">
-                        {{ JobItem.Company }}
-                      </p>
-                      <p
-                        class="font-satoshi text-base md:text-lg font-semibold text-green-600"
-                      >
-                        {{ JobItem.SalaryRange }}
-                      </p>
-                    </v-card-text>
-                  </div>
-                </v-card>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </v-col>
-      <v-col cols="2" class="sr-only md:not-sr-only">
-        <div class="mt-14 ml-2 flex align-center" style="height: 100%">
-          <v-btn
-            @click="scrollToNextJob"
-            icon
-            fab
-            color="primary"
-            class="bg-blue-50"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              color="#5B3DF6"
-              fill="none"
-            >
-              <path
-                d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </v-btn>
-        </div>
-      </v-col>
+          </v-col>
+          <v-col cols="2" class="sr-only md:not-sr-only">
+            <div class="mt-14 ml-2 flex align-center" style="height: 100%">
+              <v-btn
+                @click="scrollToNextJob"
+                icon
+                fab
+                color="primary"
+                class="bg-blue-50"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  color="#5B3DF6"
+                  fill="none"
+                >
+                  <path
+                    d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </v-btn>
+            </div>
+          </v-col>
+        </v-col>
+      </v-card>
     </v-row>
+
     <v-row
-      ><v-col class="pt-4">
+      ><v-col class="md:pt-4 mb-10">
         <v-card
           elevation="0"
           color="#E3F2FD"
-          class="mb-10 pl-10 md:pl-16 h-full pr-10 md:pr-16"
+          class="mb-6 pl-10 md:pl-20 w-full md:pr-10 md:pr-16"
         >
-          <v-row>
-            <v-col class="md:ml-10 md:mr-10 mt-6">
-              <v-card-title
-                class="text-2xl sm:text-3xl md:text-4xl font-satoshi font-semibold"
-                style="white-space: normal; word-break: break-word"
-                >News & Article</v-card-title
-              >
-            </v-col>
-          </v-row>
+          <v-col class="">
+            <v-card-title
+              class="text-2xl sm:text-3xl md:text-4xl font-satoshi font-semibold pl-10"
+              style="white-space: normal; word-break: break-word"
+              >News & Article</v-card-title
+            >
+          </v-col>
 
           <v-row no-gutters
             ><v-col class="md:p-2">
@@ -256,13 +281,14 @@
       ></v-row
     >
 
-    <v-card color="indigo darken-2" class="h-30 md:h-56">
+    <v-card color="indigo darken-2" class="h-30 md:h-56 w-full">
       <div class="pt-1 pb-1 md:pt-6 md:pb-6">
         <v-row class="justify-center align-center md:pt-5">
           <v-col cols="5">
             <v-card-title
               class="text-base sm:text-2xl md:text-4xl text-white font-satoshi font-semibold"
               style="white-space: normal; word-break: break-word"
+              transition="scale-transition"
             >
               Your favourite job seeking app is now available on
               mobile</v-card-title
@@ -294,7 +320,7 @@
         </v-row>
       </div>
     </v-card>
-    <v-card class="h-full">
+    <v-card flat class="w-full">
       <div class="pt-6">
         <v-row class="justify-center align-center p-6">
           <div class="w-full flex flex-col sm:flex-row">
@@ -415,7 +441,7 @@
         </v-row>
       </div>
     </v-card>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -612,12 +638,5 @@ export default class HelloWorld extends Vue {
 }
 .hover-blue:hover {
   color: blue !important;
-}
-.gradient-border {
-  border: 2px solid;
-  border-image-slice: 1;
-  border-width: 2px;
-  border-image-source: linear-gradient(to right, blue, red);
-  padding: 10px; /* Adjust padding to prevent content overlap with border */
 }
 </style>

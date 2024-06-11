@@ -1,8 +1,8 @@
 <template>
-  <v-app>
+  <v-app class="bg">
     <v-app-bar
-      app
       :color="scrolledPastThreshold ? 'indigo darken-2' : 'blue lighten-5'"
+      app
       flat
       min-height="80"
       :dark="scrolledPastThreshold"
@@ -13,10 +13,10 @@
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
 
-      <div class="d-flex align-center md:pl-6 justify-center">
+      <div class="d-flex align-center md:pl-6 pt-5 justify-center">
         <v-img
           alt="Logo"
-          class="rounded-md w-20"
+          class="rounded-md w-28"
           contain
           src="./assets/jobstore_mobile_icon2.png"
           transition="scale-transition"
@@ -131,6 +131,9 @@ export default Vue.extend({
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.bg {
+  background-color: #e3f2fd;
+}
 .v-app-bar {
   background-color: #2663dd;
 }
