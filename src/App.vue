@@ -1,5 +1,5 @@
 <template>
-  <v-app class="bg">
+  <v-app class="bg overflow-x-hidden">
     <v-app-bar
       :color="scrolledPastThreshold ? 'indigo darken-2' : 'blue lighten-5'"
       app
@@ -16,7 +16,7 @@
       <div class="d-flex align-center md:pl-6 pt-5 justify-center">
         <v-img
           alt="Logo"
-          class="rounded-md w-28"
+          class="rounded-md w-20 sm:w-28"
           contain
           src="./assets/jobstore_mobile_icon2.png"
           transition="scale-transition"

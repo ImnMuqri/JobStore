@@ -348,7 +348,7 @@
               class="flex flex-col items-start sm:items-center sm:flex-grow"
             >
               <p
-                class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
+                class="font-satoshi font-black text-sm sm:text-sm md:text-lg mb-2"
               >
                 Jobseeker
               </p>
@@ -372,7 +372,7 @@
               class="flex flex-col items-start sm:items-center sm:flex-grow"
             >
               <p
-                class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
+                class="font-satoshi font-black text-sm sm:text-sm md:text-lg mb-2"
               >
                 Corporate
               </p>
@@ -396,7 +396,7 @@
               class="flex flex-col items-start sm:items-center sm:flex-grow"
             >
               <p
-                class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
+                class="font-satoshi font-black text-sm sm:text-sm md:text-lg mb-2"
               >
                 About
               </p>
@@ -420,7 +420,7 @@
               class="flex flex-col items-start sm:items-center sm:flex-grow"
             >
               <p
-                class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
+                class="font-satoshi font-black text-sm sm:text-sm md:text-lg mb-2"
               >
                 Resources
               </p>
