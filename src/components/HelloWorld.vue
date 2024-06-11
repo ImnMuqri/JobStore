@@ -19,12 +19,12 @@
               </v-col>
             </v-row>
             <v-row>
-              <v-col class="flex">
+              <v-col class="flex flex-col sm:flex-col md:flex-row md:space-x-2">
                 <v-text-field
                   outlined
                   hide-details
                   placeholder="Search Job Or Company Name"
-                  class="rounded-xl bg-slate-100 w-64 sm:68 md:w-96 mr-4"
+                  class="rounded-xl bg-slate-100 w-64 sm:w-68 md:w-96 mb-2 md:mb-0 md:mr-4"
                 ></v-text-field>
                 <v-btn
                   text
@@ -32,8 +32,9 @@
                   style="text-transform: none"
                   color="white"
                   class="bg-indigo-700 rounded-lg text-base font-satoshi drop-shadow-md"
-                  >Find Jobs</v-btn
                 >
+                  Find Jobs
+                </v-btn>
               </v-col>
             </v-row>
           </div>
@@ -57,16 +58,14 @@
             >
               <v-row>
                 <div class="flex space-x-4">
-                  <v-col cols="4">
+                  <v-col>
                     <v-img
                       contain
                       src="../assets/mycareerfair_logo.png"
-                      width="400"
-                      min-width="100"
-                      class="ml-6"
+                      class="ml-6 w-48"
                     />
                   </v-col>
-                  <v-col cols="3">
+                  <v-col>
                     <div class="pl-3 pt-1 sm:pt-2 md:pt-6">
                       <p
                         class="text-xs sm:text-sm md:text-xl font-satoshi font-black gradient-text-yellow"
@@ -76,7 +75,7 @@
                       </p>
                     </div>
                   </v-col>
-                  <v-col cols="3">
+                  <v-col>
                     <div>
                       <p
                         class="text-xs sm:text-sm md:text-xl font-satoshi text-white font-medium"
@@ -96,11 +95,15 @@
     </v-card>
     <v-row class="ml-12 mt-10 mb-10">
       <v-col class="sr-only md:not-sr-only">
-        <v-card color="#E3F2FD" elevation="0" class="rounded-xl h-full">
+        <v-card
+          color="#E3F2FD"
+          elevation="0"
+          class="rounded-xl w-30 md:w-full h-full"
+        >
           <v-img contain src="../assets/JobImg.png" class="ml-6 w-40 md:w-96" />
         </v-card>
       </v-col>
-      <v-col class="pt-6 justify-center w-full md:w-1/2">
+      <v-col class="pt-6 justify-center w-1/2 md:w-1/2">
         <div class="w-full h-full">
           <p class="text-4xl font-satoshi font-semibold mb-6">
             Save time with job recommendations that match your interests
