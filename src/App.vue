@@ -100,7 +100,7 @@
       class="bg-blue-900"
       style="overflow-y: hidden"
     >
-      <v-container fluid>
+      <v-container>
         <v-row align="center" justify="center">
           <v-col cols="12" class="text-center">
             <v-list nav dense class="pt-12">
