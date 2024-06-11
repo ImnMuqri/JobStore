@@ -13,7 +13,7 @@
                     v-if="
                       $vuetify.breakpoint.smOnly || $vuetify.breakpoint.xsOnly
                     "
-                    class="shrink w-80 sm:w-0"
+                    class="shrink w-60 sm:w-0"
                     src="../assets/GirlHP.png"
                     transition="scale-transition"
                     contain
