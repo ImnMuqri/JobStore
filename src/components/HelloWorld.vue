@@ -8,12 +8,12 @@
           <div class="ml-4 md:ml-10 w-80 sm:w-80 text-center">
             <v-row>
               <v-col>
-                <v-col class="d-flex justify-center">
+                <v-col class="w-full d-flex justify-center">
                   <v-img
                     v-if="
                       $vuetify.breakpoint.smOnly || $vuetify.breakpoint.xsOnly
                     "
-                    class="shrink w-60 sm:w-0"
+                    class="shrink w-80 sm:w-0"
                     src="../assets/GirlHP.png"
                     transition="scale-transition"
                     contain
@@ -25,7 +25,7 @@
                   Better Job,
                 </h1>
                 <h1
-                  class="sm:pl-2 text-5xl sm:text-5xl md:text-5xl lg:text-6xl font-satoshi font-medium text-blue-800"
+                  class="sm:pl-2 text-6xl sm:text-5xl md:text-6xl lg:text-6xl font-satoshi font-medium text-blue-800"
                 >
                   Better Me
                 </h1>
@@ -59,9 +59,17 @@
                   v-show="$vuetify.breakpoint.xsOnly"
                   text
                   style="text-transform: none"
-                  class="bg-blue-200 text-indigo-600 rounded-lg text-base font-satoshi drop-shadow-md w-full"
+                  class="bg-blue-200 text-indigo-600 rounded-lg text-base font-satoshi drop-shadow-sm w-full mb-4"
                 >
                   Sign Up
+                </v-btn>
+                <v-btn
+                  v-show="$vuetify.breakpoint.xsOnly"
+                  text
+                  style="text-transform: none"
+                  class="bg-slate-50 rounded-lg text-base font-satoshi drop-shadow-sm w-full"
+                >
+                  Sign In
                 </v-btn>
               </v-col>
             </v-row>
