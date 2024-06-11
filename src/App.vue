@@ -7,11 +7,12 @@
       min-height="80"
       :dark="scrolledPastThreshold"
     >
-      <!-- Use v-app-bar-nav-icon for burger icon -->
-      <v-app-bar-nav-icon
-        v-if="isSmallScreen"
-        @click.stop="drawer = !drawer"
-      ></v-app-bar-nav-icon>
+      <div class="d-flex align-center md:pl-2 pt-5 justify-center">
+        <v-app-bar-nav-icon
+          v-if="isSmallScreen"
+          @click.stop="drawer = !drawer"
+        ></v-app-bar-nav-icon>
+      </div>
 
       <div class="d-flex align-center md:pl-6 pt-5 justify-center">
         <v-img
@@ -87,8 +88,45 @@
     </v-main>
 
     <!-- Drawer for small screens -->
-    <v-navigation-drawer v-if="isSmallScreen" v-model="drawer" app>
-      <!-- Your drawer content -->
+    <v-navigation-drawer
+      v-model="drawer"
+      v-if="isSmallScreen"
+      absolute
+      left
+      temporary
+      width="100%"
+      class="bg-blue-900"
+    >
+      <v-container fluid>
+        <v-row align="center" justify="center">
+          <v-col cols="12" class="text-center">
+            <v-list nav dense class="pt-12">
+              <v-list-item-group
+                v-model="group"
+                active-class="deep-purple--text text--accent-4"
+              >
+                <v-list-item v-for="(item, index) in items" :key="index">
+                  <v-list-item-subtitle
+                    class="white--text font-satoshi text-xl"
+                    style="font-size: 18px; font-family: 'Satoshi', sans-serif"
+                  >
+                    {{ item.title }}
+                  </v-list-item-subtitle>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+            <v-btn
+              @click="drawer = false"
+              icon
+              fab
+              color="error"
+              class="bg-blue-50 mt-6"
+            >
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-navigation-drawer>
   </v-app>
 </template>
@@ -105,6 +143,17 @@ export default Vue.extend({
       scrollThreshold: 400, // Change this value to your desired scroll position
       drawer: false,
       isSmallScreen: false,
+      group: null,
+
+      items: [
+        { title: "Browse Jobs", icon: "mdi-view-dashboard" },
+        { title: "Companies", icon: "mdi-image" },
+        { title: "Campus Hiring", icon: "mdi-help-box" },
+        { title: "Government Jobs", icon: "mdi-view-dashboard" },
+        { title: "News", icon: "mdi-image" },
+        { title: "Resources", icon: "mdi-help-box" },
+        { title: "Download App", icon: "mdi-view-dashboard" },
+      ],
     };
   },
   created() {
