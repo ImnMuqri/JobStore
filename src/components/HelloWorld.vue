@@ -45,7 +45,7 @@
                 <v-btn
                   hide-details
                   text
-                  height="35"
+                  height="50"
                   style="text-transform: none"
                   color="white"
                   class="bg-indigo-500 rounded-lg text-base font-satoshi drop-shadow-md w-full sm:w-full md:w-full lg:w-28 mt-0 sm:mt-4 mb-3"
@@ -58,6 +58,7 @@
                 <v-btn
                   v-show="$vuetify.breakpoint.xsOnly"
                   text
+                  height="45"
                   style="text-transform: none"
                   class="bg-blue-200 text-indigo-600 rounded-lg text-base font-satoshi drop-shadow-sm w-full mb-4"
                 >
@@ -66,6 +67,7 @@
                 <v-btn
                   v-show="$vuetify.breakpoint.xsOnly"
                   text
+                  height="45"
                   style="text-transform: none"
                   class="bg-slate-50 rounded-lg text-base font-satoshi drop-shadow-sm w-full"
                 >
