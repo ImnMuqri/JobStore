@@ -62,7 +62,7 @@
                     <v-img
                       contain
                       src="../assets/mycareerfair_logo.png"
-                      class="ml-6 w-48"
+                      class="ml-6 w-32 md:w-48"
                     />
                   </v-col>
                   <v-col>
@@ -75,7 +75,7 @@
                       </p>
                     </div>
                   </v-col>
-                  <v-col>
+                  <v-col class="sr-only sm:not-sr-only">
                     <div>
                       <p
                         class="text-xs sm:text-sm md:text-xl font-satoshi text-white font-medium"
