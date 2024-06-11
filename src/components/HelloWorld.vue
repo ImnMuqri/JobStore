@@ -5,19 +5,22 @@
         <v-col
           class="d-flex justify-center items-center sm:items-end md:items-center"
         >
-          <div class="ml-4 md:ml-10">
+          <div class="ml-4 md:ml-10 w-80 sm:w-80 text-center">
             <v-row>
               <v-col>
-                <v-img
-                  v-if="
-                    $vuetify.breakpoint.smOnly || $vuetify.breakpoint.xsOnly
-                  "
-                  class="shrink w-56 sm:w-0"
-                  src="../assets/GirlHP.png"
-                  transition="scale-transition"
-                />
+                <v-col class="d-flex justify-center">
+                  <v-img
+                    v-if="
+                      $vuetify.breakpoint.smOnly || $vuetify.breakpoint.xsOnly
+                    "
+                    class="shrink w-60 sm:w-0"
+                    src="../assets/GirlHP.png"
+                    transition="scale-transition"
+                    contain
+                  />
+                </v-col>
                 <h1
-                  class="sm:pl-2 text-5xl sm:text-5xl md:text-5xl lg:text-6xl font-satoshi font-medium text-slate-800"
+                  class="sm:pl-2 text-5xl sm:text-6xl md:text-6xl lg:text-6xl font-satoshi font-medium text-slate-800"
                 >
                   Better Job,
                 </h1>
@@ -35,6 +38,7 @@
                 <v-text-field
                   outlined
                   hide-details
+                  height="20"
                   placeholder="Search Job Or Company Name"
                   class="rounded-lg bg-slate-100 w-full sm:w-50 mb-3 sm:mb-0 md:w-96 md:mb-0 md:mr-4"
                 ></v-text-field>
@@ -44,7 +48,7 @@
                   height="35"
                   style="text-transform: none"
                   color="white"
-                  class="bg-indigo-500 rounded-lg text-base font-satoshi drop-shadow-md w-full sm:w-72 md:w-96 lg:w-28 mt-0 sm:mt-4 mb-3"
+                  class="bg-indigo-500 rounded-lg text-base font-satoshi drop-shadow-md w-full sm:w-full md:w-full lg:w-28 mt-0 sm:mt-4 mb-3"
                 >
                   Find Jobs
                 </v-btn>
@@ -55,7 +59,7 @@
                   v-show="$vuetify.breakpoint.xsOnly"
                   text
                   style="text-transform: none"
-                  class="bg-slate-200 text-indigo-600 rounded-lg text-base font-satoshi drop-shadow-md w-full"
+                  class="bg-blue-200 text-indigo-600 rounded-lg text-base font-satoshi drop-shadow-md w-full"
                 >
                   Sign Up
                 </v-btn>
@@ -130,7 +134,7 @@
                 <v-img contain src="../assets/JobImg.png" class="ml-6 w-full" />
               </v-card>
             </v-col>
-            <v-col class="pt-6 pl-10 justify-center w-32 md:w-2/3">
+            <v-col class="pt-6 md:pl-10 justify-center w-32 md:w-2/3">
               <p
                 class="text-2xl sm:text-2xl md:text-4xl font-satoshi font-semibold mb-2"
               >
@@ -224,9 +228,9 @@
           color="#E3F2FD"
           class="mb-6 pl-1 md:pl-20 w-full md:pr-10 md:pr-16"
         >
-          <v-col class="pl-4">
+          <v-col class="pl-6">
             <v-card-title
-              class="ml-2 text-3xl sm:text-4xl md:text-4xl font-satoshi font-semibold text-blue-800"
+              class="text-3xl sm:text-4xl md:text-4xl font-satoshi font-semibold text-blue-800"
               style="white-space: normal; word-break: break-word"
               >News & Article</v-card-title
             >

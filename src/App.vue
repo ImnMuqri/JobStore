@@ -107,9 +107,13 @@
                 v-model="group"
                 active-class="deep-purple--text text--accent-4"
               >
-                <v-list-item v-for="(item, index) in items" :key="index">
+                <v-list-item
+                  v-for="(item, index) in items"
+                  :key="index"
+                  class="h-12"
+                >
                   <v-list-item-subtitle
-                    class="white--text font-satoshi text-xl"
+                    class="white--text font-satoshi text-xl h-6"
                     style="font-size: 18px; font-family: 'Satoshi', sans-serif"
                   >
                     {{ item.title }}
