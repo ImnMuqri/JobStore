@@ -7,7 +7,7 @@
       min-height="80"
       :dark="scrolledPastThreshold"
     >
-      <div class="d-flex align-center md:pl-2 pt-5 justify-center">
+      <div class="d-flex align-center pt-5 justify-center">
         <v-app-bar-nav-icon
           v-if="isSmallScreen"
           @click.stop="drawer = !drawer"

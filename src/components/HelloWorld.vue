@@ -1,9 +1,9 @@
 <template>
   <div class="pt-12" style="width: 100%">
-    <v-card class="h-full pt-10" color="#E3F2FD" elevation="0">
-      <v-row class="mb-10" no-gutters>
+    <v-card class="h-full pt-12" color="#E3F2FD" elevation="0">
+      <v-row class="mb-12" no-gutters>
         <v-col class="d-flex justify-center align-center">
-          <div class="ml-4 md:ml-10 sm:mt-0">
+          <div class="ml-2 md:ml-10 sm:mt-0">
             <v-row>
               <v-col>
                 <h1
