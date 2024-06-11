@@ -94,6 +94,7 @@
       v-model="drawer"
       v-if="isSmallScreen"
       absolute
+      app
       temporary
       width="100%"
       height="100vh"
