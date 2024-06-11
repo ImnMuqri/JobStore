@@ -84,17 +84,15 @@
         </v-btn>
       </div>
     </v-app-bar>
-    <v-content>
-      <v-main>
-        <router-view />
-      </v-main>
-    </v-content>
+
+    <v-main>
+      <router-view />
+    </v-main>
 
     <!-- Drawer for small screens -->
     <v-navigation-drawer
       v-model="drawer"
       v-if="isSmallScreen"
-      absolute
       app
       temporary
       width="100%"
@@ -102,7 +100,6 @@
       class="bg-blue-900 overflow-hidden"
     >
       <v-container class="fill-height d-flex flex-column justify-center">
-        <!-- Center content vertically -->
         <v-row align="center" justify="center">
           <v-col cols="12" class="text-center">
             <v-list nav dense class="pt-12">
@@ -133,6 +130,15 @@
         </v-row>
       </v-container>
     </v-navigation-drawer>
+
+    <!-- Button to toggle drawer -->
+    <button
+      v-if="isSmallScreen"
+      class="toggle-button absolute top-0 left-0 z-50"
+      @click="drawer = !drawer"
+    >
+      <!-- Toggle button icon -->
+    </button>
   </v-app>
 </template>
 
@@ -196,5 +202,14 @@ export default Vue.extend({
 }
 .bg-light-blue {
   background-color: #c3fdff;
+}
+.toggle-button {
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+}
+
+/* Disable scrolling when drawer is open */
+.v-navigation-drawer--open .v-navigation-drawer__content {
+  overflow: hidden;
 }
 </style>
