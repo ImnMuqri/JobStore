@@ -5,7 +5,7 @@
         <v-col
           class="d-flex justify-center items-center sm:items-end md:items-center"
         >
-          <div class="ml-4 md:ml-10 w-80 sm:w-80 text-center">
+          <div class="md:ml-10 w-80 sm:w-80 text-center">
             <v-row>
               <v-col>
                 <v-col class="w-full d-flex justify-center">
