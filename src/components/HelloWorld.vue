@@ -7,12 +7,12 @@
             <v-row>
               <v-col>
                 <h1
-                  class="text-3xl sm:text-4xl md:text-7xl font-satoshi font-medium text-slate-800"
+                  class="text-5xl sm:text-6xl md:text-7xl font-satoshi font-medium text-slate-800"
                 >
                   Better Job,
                 </h1>
                 <h1
-                  class="text-3xl sm:text-4xl md:text-7xl font-satoshi font-medium text-blue-800"
+                  class="text-5xl sm:text-6xl md:text-7xl font-satoshi font-medium text-blue-800"
                 >
                   Better Me
                 </h1>
