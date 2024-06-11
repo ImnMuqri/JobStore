@@ -94,13 +94,14 @@
       v-model="drawer"
       v-if="isSmallScreen"
       absolute
-      left
       temporary
       width="100%"
+      height="100vh"
       class="bg-blue-900"
       style="overflow-y: hidden"
     >
-      <v-container>
+      <v-container class="fill-height d-flex flex-column justify-center">
+        <!-- Center content vertically -->
         <v-row align="center" justify="center">
           <v-col cols="12" class="text-center">
             <v-list nav dense class="pt-12">
