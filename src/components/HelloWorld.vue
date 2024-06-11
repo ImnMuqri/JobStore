@@ -1,18 +1,28 @@
 <template>
-  <v-container fluid class="" style="width: 100%">
+  <v-container fluid>
     <v-card class="pt-5 sm:pt-10" color="#E3F2FD" elevation="0">
-      <v-row class="mb-10 pt-5 sm:pt-10" no-gutters>
-        <v-col class="d-flex justify-center align-center">
-          <div class="ml-4 md:ml-10 mt-20 sm:mt-1 md:mt-1">
+      <v-row class="mb-10 pt-5 sm:pt-10 h-2/3">
+        <v-col
+          class="d-flex justify-center items-center sm:items-end md:items-center"
+        >
+          <div class="ml-4 md:ml-10">
             <v-row>
               <v-col>
+                <v-img
+                  v-if="
+                    $vuetify.breakpoint.smOnly || $vuetify.breakpoint.xsOnly
+                  "
+                  class="shrink w-56 sm:w-0"
+                  src="../assets/GirlHP.png"
+                  transition="scale-transition"
+                />
                 <h1
-                  class="text-6xl sm:text-5xl md:text-7xl font-satoshi font-medium text-slate-800"
+                  class="sm:pl-2 text-5xl sm:text-5xl md:text-5xl lg:text-6xl font-satoshi font-medium text-slate-800"
                 >
                   Better Job,
                 </h1>
                 <h1
-                  class="text-6xl sm:text-5xl md:text-7xl font-satoshi font-medium text-blue-800"
+                  class="sm:pl-2 text-5xl sm:text-5xl md:text-5xl lg:text-6xl font-satoshi font-medium text-blue-800"
                 >
                   Better Me
                 </h1>
@@ -20,13 +30,13 @@
             </v-row>
             <v-row justify="center" align="center">
               <v-col
-                class="flex flex-col sm:flex-col md:flex-row md:space-x-2 justify-center items-center"
+                class="flex flex-col sm:flex-col md:flex-col lg:flex-row lg:space-x-2 justify-center items-center"
               >
                 <v-text-field
                   outlined
                   hide-details
                   placeholder="Search Job Or Company Name"
-                  class="rounded-lg bg-slate-100 w-72 sm:w-76 mb-2 sm:mb-0 md:w-96 md:mb-0 md:mr-4"
+                  class="rounded-lg bg-slate-100 w-full sm:w-50 mb-3 sm:mb-0 md:w-96 md:mb-0 md:mr-4"
                 ></v-text-field>
                 <v-btn
                   hide-details
@@ -34,18 +44,27 @@
                   height="35"
                   style="text-transform: none"
                   color="white"
-                  class="bg-indigo-500 rounded-lg text-base font-satoshi drop-shadow-md w-full sm:w-72 md:w-28"
+                  class="bg-indigo-500 rounded-lg text-base font-satoshi drop-shadow-md w-full sm:w-72 md:w-96 lg:w-28 mt-0 sm:mt-4 mb-3"
                 >
                   Find Jobs
+                </v-btn>
+                <span v-show="$vuetify.breakpoint.xsOnly" class="mb-2">
+                  Or</span
+                >
+                <v-btn
+                  v-show="$vuetify.breakpoint.xsOnly"
+                  text
+                  style="text-transform: none"
+                  class="bg-slate-200 text-indigo-600 rounded-lg text-base font-satoshi drop-shadow-md w-full"
+                >
+                  Sign Up
                 </v-btn>
               </v-col>
             </v-row>
           </div>
-        </v-col>
-        <v-col class="sr-only sm:not-sr-only">
+
           <v-img
-            class="shrink w-20 sm:w-80 md:w-full lg:max-w-[650px]"
-            contain
+            class="shrink w-full sm:w-72 md:w-100 lg:w-2/5 hidden sm:block"
             src="../assets/GirlHP.png"
             transition="scale-transition"
           />
@@ -53,10 +72,10 @@
       </v-row>
       <v-row class="mb-2 sr-only sm:not-sr-only">
         <v-col class="ml-1 mr-1 sm:ml-10 md:ml-24 sm:mr-10 md:mr-24">
-          <div class="p-2 sm:pl-10 sm:pr-10 md:pl-10 md:pr-10">
+          <div class="p-2 sm:pl-2 sm:pr-2 md:pl-3 md:pr-3">
             <v-card
               color="indigo darken-1"
-              class="w-full h-20 sm:h-28 md:h-40 p-6 rounded-lg"
+              class="w-full h-20 sm:h-28 md:h-44 lg:h-44 p-6 rounded-lg"
             >
               <v-row>
                 <div class="flex space-x-4">
@@ -64,13 +83,13 @@
                     <v-img
                       contain
                       src="../assets/mycareerfair_logo.png"
-                      class="ml-6 w-28 sm:w-34 md:w-96"
+                      class="ml-6 w-36 md:w-64 lg:w-80"
                     />
                   </v-col>
                   <v-col>
                     <div class="pl-3">
                       <p
-                        class="text-xs sm:text-xs md:text-xl font-satoshi font-black gradient-text-yellow"
+                        class="text-xs sm:text-xs md:text-xl lg:text-3xl font-satoshi font-black gradient-text-yellow"
                       >
                         <span>26 - 27 OCTOBER 2024</span><br />
                         <span> 10AM - 6PM</span>
@@ -80,10 +99,10 @@
                   <v-col class="sr-only sm:not-sr-only">
                     <div class="pt-2">
                       <p
-                        class="text-xs sm:text-sm md:text-lg font-satoshi text-white font-semibold"
+                        class="text-xs sm:text-sm md:text-xl lg:text-2xl font-satoshi text-white font-semibold"
                         ref="countdown"
                       >
-                        Countdown<br />
+                        Countdown:<br />
                         <span>{{ countdown }}</span>
                       </p>
                     </div>
@@ -95,28 +114,36 @@
         </v-col>
       </v-row>
     </v-card>
-    <v-row class="mt-10 mb-6">
-      <v-card class="w-full" flat>
-        <v-col class="flex p-12">
-          <v-col class="sr-only md:not-sr-only md:pt-4 md:pl-2">
-            <v-card
-              color="#E3F2FD"
-              elevation="0"
-              class="rounded-xl w-28 md:pt-6 md:pl-2 md:w-96 md:h-96"
+    <v-card class="mb-4">
+      <v-row>
+        <v-card class="w-full" flat>
+          <v-col class="flex pl-6 pr-6 pt-6 justify-start">
+            <v-col
+              cols="3"
+              class="md:pt-4 lg:pl-2 md:w-1/3 d-flex justify-end sr-only sm:sr-only lg:not-sr-only"
             >
-              <v-img
-                contain
-                src="../assets/JobImg.png"
-                class="ml-6 w-80 md:w-96"
-              />
-            </v-card>
-          </v-col>
-          <v-col class="pt-6 justify-center w-32 md:w-1/2">
-            <div class="w-full h-full">
-              <p
-                class="text-2xl sm:text-2xl md:text-4xl font-satoshi font-semibold mb-6"
+              <v-card
+                color="#E3F2FD"
+                elevation="0"
+                class="rounded-xl lg:pt-6 lg:pl-2 g:w-96 lg:h-full"
               >
-                Save time with job recommendations that match your interests
+                <v-img contain src="../assets/JobImg.png" class="ml-6 w-full" />
+              </v-card>
+            </v-col>
+            <v-col class="pt-6 pl-10 justify-center w-32 md:w-2/3">
+              <p
+                class="text-2xl sm:text-2xl md:text-4xl font-satoshi font-semibold mb-2"
+              >
+                Save your time with job recommendations that match your
+                interests
+              </p>
+              <p
+                class="text-xl sm:text-sm md:text-xl font-satoshi font-medium text-slate-500 mb-6"
+              >
+                Discover tailored job suggestions aligned with your skills and
+                preferences, simplify your search, and seize exciting career
+                opportunities faster with personalized recommendations from our
+                platform.
               </p>
               <v-btn
                 text
@@ -127,316 +154,294 @@
               >
                 Explore Jobs >>
               </v-btn>
-              <div
-                class="overflow-x-scroll mt-6 h-full"
-                style="scrollbar-width: none"
-              >
-                <div class="flex">
-                  <div v-for="(JobItem, index) in Jobs" :key="index">
-                    <v-card
-                      class="drop-shadow-lg w-60 sm:w-96 m-3"
-                      elevation="0"
-                      style="border: 1px solid #ccc"
-                    >
-                      <div class="flex justify-between items-center">
-                        <v-card-title
-                          class="text-lg md:text-xl font-satoshi font-semibold"
-                          style="white-space: normal; word-break: break-word"
+            </v-col>
+          </v-col>
+          <v-col class="pl-6 pr-6">
+            <div class="overflow-x-scroll h-full" style="scrollbar-width: none">
+              <p class="text-lg font-satoshi font-medium pl-4 lg:pt-2">
+                #TrendingJobs
+              </p>
+              <div class="flex">
+                <div v-for="(JobItem, index) in Jobs" :key="index">
+                  <v-card
+                    class="drop-shadow-lg w-60 sm:w-96 m-3"
+                    elevation="0"
+                    style="border: 1px solid #ccc"
+                  >
+                    <div class="flex justify-between items-center">
+                      <v-card-title
+                        class="text-lg md:text-xl font-satoshi font-semibold"
+                        style="white-space: normal; word-break: break-word"
+                      >
+                        {{ JobItem.Position }}
+                      </v-card-title>
+                    </div>
+                    <div class="text-left pl-3">
+                      <v-chip outlined color="orange">{{
+                        JobItem.Location
+                      }}</v-chip>
+                    </div>
+                    <div class="pl-2 pr-2">
+                      <v-card-text>
+                        <p
+                          color="secondary"
+                          class="text-base font-bold text-blue-600"
                         >
-                          {{ JobItem.Position }}
-                        </v-card-title>
-                      </div>
-                      <div class="text-left pl-3">
-                        <v-chip outlined color="orange">{{
-                          JobItem.Location
-                        }}</v-chip>
-                      </div>
-                      <div class="pl-2 pr-2">
-                        <v-card-text>
+                          {{ JobItem.Company }}
+                        </p>
+                        <div class="flex space-between justify-between">
                           <p
-                            color="secondary"
-                            class="text-base font-bold text-blue-600"
+                            class="font-satoshi text-base md:text-lg font-semibold text-green-600"
                           >
-                            {{ JobItem.Company }}
+                            {{ JobItem.SalaryRange }}
                           </p>
-                          <div class="flex space-between justify-between">
-                            <p
-                              class="font-satoshi text-base md:text-lg font-semibold text-green-600"
-                            >
-                              {{ JobItem.SalaryRange }}
-                            </p>
-                            <v-btn
-                              dense
-                              depressed
-                              color="blue lighten-1"
-                              dark
-                              class="font-satoshi rounded-full"
-                              style="text-transform: none"
-                            >
-                              View Job
-                            </v-btn>
-                          </div>
-                        </v-card-text>
-                      </div>
-                    </v-card>
-                  </div>
+                          <v-btn
+                            dense
+                            depressed
+                            color="blue lighten-1"
+                            dark
+                            class="font-satoshi rounded-full"
+                            style="text-transform: none"
+                          >
+                            View Job
+                          </v-btn>
+                        </div>
+                      </v-card-text>
+                    </div>
+                  </v-card>
                 </div>
               </div>
             </div>
           </v-col>
-          <v-col cols="2" class="sr-only md:not-sr-only">
-            <div class="mt-14 ml-2 flex align-center" style="height: 100%">
-              <v-btn
-                @click="scrollToNextJob"
-                icon
-                fab
-                color="primary"
-                class="bg-blue-50"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                  color="#5B3DF6"
-                  fill="none"
-                >
-                  <path
-                    d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </v-btn>
-            </div>
-          </v-col>
-        </v-col>
-      </v-card>
-    </v-row>
+        </v-card>
+      </v-row>
+    </v-card>
 
-    <v-row
-      ><v-col class="md:pt-4 mb-10">
+    <v-card>
+      <v-row>
         <v-card
           elevation="0"
           color="#E3F2FD"
           class="mb-6 pl-1 md:pl-20 w-full md:pr-10 md:pr-16"
         >
-          <v-row no-gutters>
-            <v-col class="pl-2 md:pl-6">
-              <v-card-title
-                class="text-2xl sm:text-3xl md:text-4xl font-satoshi font-semibold text-blue-800"
-                style="white-space: normal; word-break: break-word"
-                >News & Article</v-card-title
-              ><v-col class="md:p-2">
-                <v-col class="sm:ml-6 d-flex justify-end">
-                  <v-btn
-                    text
-                    height="40"
-                    style="text-transform: none"
-                    color="blue darken-4"
-                    class="rounded-lg font-satoshi drop-shadow-md underline"
+          <v-col class="pl-4">
+            <v-card-title
+              class="ml-2 text-3xl sm:text-4xl md:text-4xl font-satoshi font-semibold text-blue-800"
+              style="white-space: normal; word-break: break-word"
+              >News & Article</v-card-title
+            >
+            <v-col class="d-flex justify-end">
+              <v-btn
+                text
+                height="40"
+                style="text-transform: none"
+                color="blue darken-4"
+                class="rounded-lg font-satoshi drop-shadow-md underline"
+              >
+                Read More >>
+              </v-btn> </v-col
+            ><v-row class="md:p-2">
+              <div class="flex h-30 md:ml-6 space-x-4 overflow-x-auto">
+                <div
+                  v-for="(newsItem, index) in newsItems"
+                  :key="index"
+                  class="mb-6 w-fit"
+                >
+                  <v-card
+                    elevation="0"
+                    class="w-48 lg:w-64 h-60 sm:h-50 md:h-72 lg:h-full rounded-lg overflow-hidden drop-shadow-lg mb-4"
                   >
-                    Read More >>
-                  </v-btn>
+                    <v-responsive>
+                      <v-img
+                        :src="getImagePath(newsItem.image)"
+                        :alt="newsItem.title"
+                        class="object-cover sm:h-32 md:h-40 lg:h-40"
+                      />
+                    </v-responsive>
+                    <v-card-title
+                      class="pt-4 text-xs mb-6 sm:text-sm md:text-base lg:text-base"
+                      style="white-space: normal; word-break: break-word"
+                    >
+                      {{ newsItem.title }}
+                    </v-card-title>
+                    <v-card-subtitle class="absolute bottom-0 left-0 right-0">{{
+                      newsItem.date
+                    }}</v-card-subtitle>
+                  </v-card>
+                </div>
+              </div></v-row
+            >
+          </v-col>
+        </v-card></v-row
+      >
+    </v-card>
+    <v-card class="mb-4">
+      <v-row>
+        <v-card color="indigo darken-2" class="h-30 md:h-56 w-full">
+          <div class="pt-1 pb-1 md:pt-6 md:pb-6">
+            <v-row class="justify-center align-center md:pt-5">
+              <v-col cols="5">
+                <v-card-title
+                  class="text-base sm:text-2xl md:text-4xl text-white font-satoshi font-semibold"
+                  style="white-space: normal; word-break: break-word"
+                >
+                  Your favourite job seeking app is now available on
+                  mobile</v-card-title
+                >
+              </v-col>
+              <v-col cols="3">
+                <v-row class="justify-end">
+                  <div class="p-10 space-y-4">
+                    <v-img
+                      contain
+                      src="../assets/app-store.png"
+                      class="ml-6 w-6 md:w-12"
+                    />
+                    <v-img
+                      contain
+                      src="../assets/game.png"
+                      class="ml-6 w-6 md:w-12"
+                    />
+                  </div>
+                </v-row>
+              </v-col>
+              <v-col cols="3">
+                <v-img
+                  contain
+                  src="../assets/jobstore_mobile_icon.png"
+                  class="md:ml-6 rounded-full drop-shadow-lg w-20 md:w-40 sm:w-28"
+                />
+              </v-col>
+            </v-row>
+          </div>
+        </v-card>
+      </v-row>
+    </v-card>
+    <v-card class="mb-4">
+      <v-row>
+        <v-card flat class="w-full">
+          <div class="pt-6">
+            <v-row class="justify-center align-center p-6">
+              <div class="w-full flex flex-col sm:flex-row md:flex-row">
+                <v-col cols="12" sm="4" class="d-flex justify-center">
+                  <div class="flex flex-col items-center">
+                    <v-img
+                      contain
+                      src="../assets/JobStoreLogo.png"
+                      class="drop-shadow-lg w-40 md:w-72"
+                    />
+                    <v-select
+                      :items="items"
+                      v-model="selectedItem"
+                      outlined
+                      dense
+                      color="primary"
+                      hide-details
+                      class="w-80 sm:w-30 md:w-80"
+                    ></v-select>
+                  </div>
                 </v-col>
 
-                <div class="flex h-30 md:ml-10 space-x-4 overflow-x-auto">
-                  <div
-                    v-for="(newsItem, index) in newsItems"
-                    :key="index"
-                    class="mb-6 w-full"
+                <v-col
+                  cols="16"
+                  sm="auto"
+                  class="flex flex-col items-start sm:items-start sm:flex-grow"
+                >
+                  <p
+                    class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
                   >
-                    <v-card
-                      elevation="0"
-                      class="w-48 md:w-96 h-72 md:h-full rounded-lg overflow-hidden drop-shadow-lg mb-4"
+                    Jobseeker
+                  </p>
+                  <div v-for="(item, index) in Jobseeker" :key="index">
+                    <p
+                      class="font-satoshi text-xs font-medium hover:text-blue-500 cursor-pointer"
+                      style="
+                        text-transform: none;
+                        white-space: normal;
+                        word-break: break-word;
+                      "
                     >
-                      <v-responsive>
-                        <v-img
-                          :src="getImagePath(newsItem.image)"
-                          :alt="newsItem.title"
-                          class="object-cover sm:h-48 md:h-64"
-                        />
-                      </v-responsive>
-                      <v-card-title
-                        class="pt-4 text-base mb-6"
-                        style="white-space: normal; word-break: break-word"
-                      >
-                        {{ newsItem.title }}
-                      </v-card-title>
-                      <v-card-subtitle
-                        class="absolute bottom-0 left-0 right-0"
-                        >{{ newsItem.date }}</v-card-subtitle
-                      >
-                    </v-card>
+                      {{ item }}
+                    </p>
                   </div>
-                </div></v-col
-              >
-            </v-col></v-row
-          >
-        </v-card></v-col
-      ></v-row
-    >
+                </v-col>
 
-    <v-card color="indigo darken-2" class="h-30 md:h-56 w-full">
-      <div class="pt-1 pb-1 md:pt-6 md:pb-6">
-        <v-row class="justify-center align-center md:pt-5">
-          <v-col cols="5">
-            <v-card-title
-              class="text-base sm:text-2xl md:text-4xl text-white font-satoshi font-semibold"
-              style="white-space: normal; word-break: break-word"
-            >
-              Your favourite job seeking app is now available on
-              mobile</v-card-title
-            >
-          </v-col>
-          <v-col cols="3">
-            <v-row class="justify-end">
-              <div class="p-10 space-y-4">
-                <v-img
-                  contain
-                  src="../assets/app-store.png"
-                  class="ml-6 w-6 md:w-12"
-                />
-                <v-img
-                  contain
-                  src="../assets/game.png"
-                  class="ml-6 w-6 md:w-12"
-                />
+                <v-col
+                  cols="12"
+                  sm="auto"
+                  class="flex flex-col items-start sm:items-start sm:flex-grow"
+                >
+                  <p
+                    class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
+                  >
+                    Corporate
+                  </p>
+                  <div v-for="(item, index) in corporate" :key="index">
+                    <p
+                      class="font-satoshi text-xs font-medium hover:text-blue-500 cursor-pointer"
+                      style="
+                        text-transform: none;
+                        white-space: normal;
+                        word-break: break-word;
+                      "
+                    >
+                      {{ item }}
+                    </p>
+                  </div>
+                </v-col>
+
+                <v-col
+                  cols="12"
+                  sm="auto"
+                  class="flex flex-col items-start sm:items-start sm:flex-grow"
+                >
+                  <p
+                    class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
+                  >
+                    About
+                  </p>
+                  <div v-for="(item, index) in about" :key="index">
+                    <p
+                      class="font-satoshi text-xs font-medium hover:text-blue-500 cursor-pointer"
+                      style="
+                        text-transform: none;
+                        white-space: normal;
+                        word-break: break-word;
+                      "
+                    >
+                      {{ item }}
+                    </p>
+                  </div>
+                </v-col>
+
+                <v-col
+                  cols="12"
+                  sm="auto"
+                  class="flex flex-col items-start sm:items-start sm:flex-grow"
+                >
+                  <p
+                    class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
+                  >
+                    Resources
+                  </p>
+                  <div v-for="(item, index) in resources" :key="index">
+                    <p
+                      class="font-satoshi text-xs font-medium hover:text-blue-500 cursor-pointer"
+                      style="
+                        text-transform: none;
+                        white-space: normal;
+                        word-break: break-word;
+                      "
+                    >
+                      {{ item }}
+                    </p>
+                  </div>
+                </v-col>
               </div>
             </v-row>
-          </v-col>
-          <v-col cols="3">
-            <v-img
-              contain
-              src="../assets/jobstore_mobile_icon.png"
-              class="md:ml-6 rounded-full drop-shadow-lg w-20 md:w-44"
-            />
-          </v-col>
-        </v-row>
-      </div>
-    </v-card>
-    <v-card flat class="w-full">
-      <div class="pt-6">
-        <v-row class="justify-center align-center p-6">
-          <div class="w-full flex flex-col sm:flex-row">
-            <v-col cols="12" sm="4" class="d-flex justify-center">
-              <div class="flex flex-col items-center">
-                <v-img
-                  contain
-                  src="../assets/JobStoreLogo.png"
-                  class="drop-shadow-lg w-40 md:w-80"
-                />
-                <v-select
-                  :items="items"
-                  v-model="selectedItem"
-                  outlined
-                  color="primary"
-                  hide-details
-                  class="w-80 sm:w-30 md:w-80"
-                ></v-select>
-              </div>
-            </v-col>
-
-            <v-col
-              cols="12"
-              sm="auto"
-              class="flex flex-col items-start sm:items-center sm:flex-grow"
-            >
-              <p
-                class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
-              >
-                Jobseeker
-              </p>
-              <div v-for="(item, index) in Jobseeker" :key="index">
-                <p
-                  class="font-satoshi text-xs font-medium hover:text-blue-500 cursor-pointer"
-                  style="
-                    text-transform: none;
-                    white-space: normal;
-                    word-break: break-word;
-                  "
-                >
-                  {{ item }}
-                </p>
-              </div>
-            </v-col>
-
-            <v-col
-              cols="12"
-              sm="auto"
-              class="flex flex-col items-start sm:items-center sm:flex-grow"
-            >
-              <p
-                class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
-              >
-                Corporate
-              </p>
-              <div v-for="(item, index) in corporate" :key="index">
-                <p
-                  class="font-satoshi text-xs font-medium hover:text-blue-500 cursor-pointer"
-                  style="
-                    text-transform: none;
-                    white-space: normal;
-                    word-break: break-word;
-                  "
-                >
-                  {{ item }}
-                </p>
-              </div>
-            </v-col>
-
-            <v-col
-              cols="12"
-              sm="auto"
-              class="flex flex-col items-start sm:items-center sm:flex-grow"
-            >
-              <p
-                class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
-              >
-                About
-              </p>
-              <div v-for="(item, index) in about" :key="index">
-                <p
-                  class="font-satoshi text-xs font-medium hover:text-blue-500 cursor-pointer"
-                  style="
-                    text-transform: none;
-                    white-space: normal;
-                    word-break: break-word;
-                  "
-                >
-                  {{ item }}
-                </p>
-              </div>
-            </v-col>
-
-            <v-col
-              cols="12"
-              sm="auto"
-              class="flex flex-col items-start sm:items-center sm:flex-grow"
-            >
-              <p
-                class="font-satoshi font-black text-xs sm:text-sm md:text-lg mb-2"
-              >
-                Resources
-              </p>
-              <div v-for="(item, index) in resources" :key="index">
-                <p
-                  class="font-satoshi text-xs font-medium hover:text-blue-500 cursor-pointer"
-                  style="
-                    text-transform: none;
-                    white-space: normal;
-                    word-break: break-word;
-                  "
-                >
-                  {{ item }}
-                </p>
-              </div>
-            </v-col>
           </div>
-        </v-row>
-      </div>
+        </v-card>
+      </v-row>
     </v-card>
   </v-container>
 </template>
@@ -484,23 +489,35 @@ export default class HelloWorld extends Vue {
   newsItems = [
     {
       title: "Experts warn of WhatsApp upfront fee jobscam",
-      date: "10.06.2024",
+      date: "9.06.2024",
       image: "Experts-warn-of-WhatsApp-upfront-fee-job-scam.jpg",
     },
     {
       title: "Media women protest employment stagnation and inequality",
-      date: "12.06.2024",
+      date: "10.06.2024",
       image: "Media-women-protest-employment-stagnation-and-inequality.jpg",
     },
     {
       title: "Malaysian Workers Lead Global AI Adoption",
-      date: "14.06.2024",
+      date: "10.06.2024",
       image: "Malaysian-Workers-Lead-Global-AI-Adoption-scaled.jpg",
     },
     {
       title: "Dragon Boat Festival consumption will boost China’s economy",
-      date: "15.06.2024",
+      date: "11.06.2024",
       image: "Dragon-Boat-Festival-consumption-will-boost-Chinas-economy.jpg",
+    },
+    {
+      title:
+        "Amir Hamzah: Malaysia's economic transformation momentum to accelerate this year",
+      date: "11.06.2024",
+      image: "Amir.jpg",
+    },
+    {
+      title:
+        "'Malaysia has made progress in 2 out of 7 Johor-Singapore Special Economic Zone initiatives'",
+      date: "11.06.2024",
+      image: "Sing.jpg",
     },
   ];
   getImagePath(image: string) {
@@ -635,5 +652,8 @@ export default class HelloWorld extends Vue {
 }
 .hover-blue:hover {
   color: blue !important;
+}
+.v-application p {
+  margin-bottom: 0 !important; /* Override the margin */
 }
 </style>

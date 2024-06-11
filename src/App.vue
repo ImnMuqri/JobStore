@@ -25,7 +25,10 @@
       </div>
 
       <v-spacer></v-spacer>
-      <div v-if="!isSmallScreen" class="pt-4 sr-only sm:sr-only md:not-sr-only">
+      <div
+        v-if="!isSmallScreen"
+        class="pt-4 sr-only sm:sr-only md:sr-only lg:not-sr-only"
+      >
         <v-btn text class="font-satoshi font-medium hover-blue"
           >Browse Jobs</v-btn
         >
@@ -54,7 +57,6 @@
           :class="{
             'bg-slate-100': true,
             'text-indigo-700': true,
-
             'rounded-md': true,
             'font-satoshi': true,
             'text-base': true,
